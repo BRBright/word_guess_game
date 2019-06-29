@@ -1,36 +1,39 @@
-var wins = 0;
-var loss = 0;
 var animals = ["hippopotamus", "chimpanzee", "crocodile", "scorpion", "alligator", "dolphin"];
-var letter = " ";
+var letter = [];
 var randWord = getRanWord();
+var letRemain = randWord.length;
 
-
-    console.log(randWord);
-    
   function getRanWord() {
     var rand = animals[Math.floor(Math.random()* animals.length)];
     return rand;
   }
   function display() {
-      for(i = 0; i <= randWord.length; i++){
-        letter = letter + "_" + " ";
+      for(i = 0; i < randWord.length; i++){
+        letter[i] = "_";
     }
-    document.getElementById('secretWord').innerHTML = "<h3>" + letter + "</h3>";
-  }
-  function match(guess) {
-    for(i = 0; i <= randWord.length; i++){
-        if(guess === randWord[i]) {
-            
-            console.log(randWord[i])
+    }
+document.onclick = function() {  
+  do{
+    alert(letter.join(" "));
+    var guess = prompt("Guess or a Letter.");
+    if(guess == null){
+        break;
+    }
+    else if (guess.length !== 1){
+        alert("Please enter a single letter.")
+    }
+    else {
+        for(var j = 0; j < randWord.length; j++){
+            if(randWord[j] == guess) {
+                letter[j] = guess;
+                letRemain--;
+            }
+            else if(guess !== randWord[j]){
+                console.log(guess);
+            }
         }
     }
-  }
-  function getLetter() {
-    var userGuess = prompt("Choose a letter");
-    return userGuess;
-  }
-// Whenever a key is pressed, alert "pressed a button".
-document.onkeyup = function() {  
-    var guess = getLetter();
-    match(guess);
+  }while(letRemain > 0)
+  document.getElementById('secretWord').innerHTML = randWord;
+    alert("Good Job!")
 };

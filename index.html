@@ -6,29 +6,31 @@
   <title>Word Guess Game</title>
   <script type="text/javascript" src="assets/javascript/game.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <header>
-        <h1>
-            Word Guessing
-        </h1>
-        <h3>
-            Animals
-        </h3>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 font-weight-bolder text-center">Word Guess</h1>
+                <h4 class="lead font-italic text-center">Theme: Animals</h4>
+            </div>
+        </div>
     </header>
         <div class="container">
-            <button onclick="display(); match();">Click for Word</button>
+            <button onclick="display();"" class="btn btn-dark">Click for Word</button>
+            <input class="btn btn-dark" type="reset" value="Reset">
             <div id="secretWord"></div>
         </div>
 
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                <a>Wins:</a>
+                <a class="lead font-italic">Wins:</a>
                 </div>
                 <div class="col-sm">
-                <a>Losses:</a>
+                <a class="lead font-italic">Losses:</a>
                 </div>  
             </div>
         </div>
