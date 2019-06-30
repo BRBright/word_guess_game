@@ -13,7 +13,7 @@ var letRemain = randWord.length;
     }
     }
 document.onclick = function() {  
-  do{
+  while(letRemain > 0){
     alert(letter.join(" "));
     var guess = prompt("Guess or a Letter.");
     if(guess == null){
@@ -33,7 +33,7 @@ document.onclick = function() {
             }
         }
     }
-  }while(letRemain > 0)
+  }
   document.getElementById('secretWord').innerHTML = randWord;
     alert("Good Job!")
 };
